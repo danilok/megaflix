@@ -3,15 +3,15 @@
     {
       "titulo": "Front End",
       "link": "https://www.alura.com.br/formacao-front-end",
-      "cor": "#6BD1FF",
+      "cor": "#48a9a6",
       "link_extra": {
         "text": "Formação de Front End na Alura",
         "url": "https://www.alura.com.br/cursos-online-front-end"
       },
       "videos": [
         {
-          "titulo": "O que faz uma desenvolvedora front-end? #HipstersPontoTube",
-          "url": "https://www.youtube.com/watch?v=ZY3-MFxVdEw"
+          "titulo": "Modern JavaScript Learning Path in 2020",
+          "url": "https://www.youtube.com/watch?v=gSnbnYffz7k"
         },
         {
           "titulo": "SEO com React",
@@ -41,6 +41,67 @@
           "titulo": "Base para aprender os frameworks",
           "url": "https://www.youtube.com/watch?v=QzDjdlF1BQI"
         }        
+      ]
+    },
+    {
+      "titulo": "Ionic",
+      "link": "https://www.alura.com.br/curso-online-ionic",
+      "cor": "#6BD1FF",
+      "link_extra": {
+        "text": "Curso de Ionic",
+        "url": "https://www.alura.com.br/curso-online-ionic"
+      },
+      "videos": [
+        {
+          "titulo": "Criando apps com Ionic Framework - Guia completo 2020",
+          "url": "https://www.youtube.com/watch?v=guM__mfT9og"
+        },
+        {
+          "titulo": "Ionic // Dicionário do Programador",
+          "url": "https://www.youtube.com/watch?v=5QqvO_9LPzQ"
+        },
+        {
+          "titulo": "Create PDF Files with Ionic and Capacitor using PDFMake",
+          "url": "https://www.youtube.com/watch?v=QZ-CRdhxQbI"
+        }
+      ]
+    },
+    {
+      "titulo": "CouchDB",
+      "link": "https://www.alura.com.br/curso-online-ionic",
+      "cor": "#c1666b",
+      "link_extra": {
+        "text": "",
+        "url": "https://www.alura.com.br/curso-online-ionic"
+      },
+      "videos": [
+        {
+          "titulo": "CouchDB Basics",
+          "url": "https://www.youtube.com/watch?v=nlqv9Np3iAU"
+        },
+        {
+          "titulo": "Tutorial CouchDB com PouchDB (Sync DB) [PT-BR]",
+          "url": "https://www.youtube.com/watch?v=f-wob9l72rA"
+        }
+      ]
+    },
+    {
+      "titulo": "Angular",
+      "link": "",
+      "cor": "blue",
+      "link_extra": {
+        "text": "",
+        "url": ""
+      },
+      "videos": [
+        {
+          "titulo": "Curso Angular",
+          "url": "https://www.youtube.com/watch?v=tPOMG0D57S0&list=PLGxZ4Rq3BOBoSRcKWEdQACbUCNWLczg2G"
+        },
+        {
+          "titulo": "Angular Router - The Basics and Beyond",
+          "url": "https://www.youtube.com/watch?v=Np3ULAMqwNo"
+        }
       ]
     },
     {
