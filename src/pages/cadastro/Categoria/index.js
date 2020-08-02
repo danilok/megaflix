@@ -3,92 +3,61 @@ import { Link } from 'react-router-dom';
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
 import Button from '../../../components/Button';
+import useForm from '../../../hooks/useForm';
+import categoriasRepository from '../../../repositories/categorias';
 
 function CadastroCategoria() {
   const valoresIniciais = {
-    nome: '',
+    titulo: '',
     descricao: '',
     cor: '#000000',
   };
+
+  const { values, handleChange, resetForm } = useForm(valoresIniciais);
   const [categorias, setCategorias] = useState([]);
-  const [values, setValues] = useState(valoresIniciais);
-
-  function setValue(chave, valor) {
-    setValues({
-      ...values,
-      [chave]: valor,
-    });
-  }
-
-  function handleChange(evento) {
-    // console.log(evento)
-    // const { getAttribute, value } = evento.target;
-    // console.log(getAttribute, value);
-    setValue(
-      evento.target.getAttribute('name'),
-      evento.target.value,
-    );
-  }
 
   /* useEffect usa dois parametros, primeiro a função
   /* segundo parâmetro pode ser vazio e isso indica que será executado a qualquer interação,
   /* se for um array vazio ([]), será executado apenas uma vez */
   useEffect(() => {
-    const URL_TOP = window.location.hostname.includes('localhost')
-      ? 'http://localhost:8080/categorias'
-      : 'https://megafliix.herokuapp.com/categorias';
-    fetch(URL_TOP)
-      .then(async (response) => {
-        const resposta = await response.json();
-        setCategorias([
-          ...resposta,
-        ]);
+    categoriasRepository.getAll()
+      .then((response) => {
+        setCategorias(response);
       })
-    /*
-    setTimeout(() => {
-      setCategorias([
-        ...categorias,
-        {
-          id: 1,
-          nome: 'Front End',
-          descricao: 'Uma categoria da hora',
-          cor: '#cbd1ff',
-        },
-        {
-          id: 2,
-          nome: 'Back End',
-          descricao: 'Outra categoria da hora',
-          cor: '#cbd1ff',
-        },
-      ])
-    }, 4 * 1000)*/
-  }, [
-    values.nome
-  ]);
+      .catch((error) => {
+        console.log(error.message);
+      });
+  }, []);
 
   return (
     <PageDefault>
       <h1>
         Cadastro Categoria:
-        {values.nome}
+        {values.titulo}
       </h1>
 
       <form onSubmit={function handleSubmit(event) {
         event.preventDefault();
-        // console.log('Você tentou enviar o form');
-        setCategorias([
-          ...categorias,
-          values,
-        ]);
+        categoriasRepository.create({
+          titulo: values.titulo,
+          descricao: values.descricao,
+          cor: values.cor,
+        })
+          .then((response) => {
+            setCategorias([
+              ...categorias,
+              response,
+            ]);
+          });
 
-        setValues(valoresIniciais);
+        resetForm(valoresIniciais);
       }}
       >
 
         <FormField
           label="Nome da Categoria"
-          value={values.nome}
-          name="nome"
+          value={values.titulo}
+          name="titulo"
           onChange={handleChange}
         />
 
@@ -113,15 +82,15 @@ function CadastroCategoria() {
         </Button>
       </form>
 
-      {categorias.length === 0 && 
+      {categorias.length === 0 && (
         <div>
           Loading...
         </div>
-      }
+      )}
       <ul>
         {categorias.map((categoria) => (
-          <li key={`${categoria.nome}`}>
-            {categoria.nome}
+          <li key={`${categoria.titulo}`}>
+            {categoria.titulo}
           </li>
         ))}
       </ul>
