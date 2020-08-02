@@ -6,6 +6,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import CadastroVideo from './pages/cadastro/Video';
 import CadastroCategoria from './pages/cadastro/Categoria';
+import Iframe from 'react-iframe';
 
 /*
 Definição rápida para testes tambem
@@ -18,7 +19,21 @@ function CadastroVideo() {
 }*/
 
 /* Outra forma de definição rápida para teste*/
-const Pagina404 = () => (<div>Página 404</div>)
+//const Pagina404 = () => (<div>Página 404</div>)
+function Pagina404() {
+  return (
+    <>
+      <h1>Página não encontrada</h1>
+      <Iframe url="https://editor.p5js.org/danilo.yorinori/embed/ZUkIs_I0G"
+          width="100%"
+          height="100%"
+          id="myId"
+          className="iframe404"
+          display="initial"
+          position="absolute"></Iframe>
+    </>
+  )
+}
 
 ReactDOM.render(
   <BrowserRouter>

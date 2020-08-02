@@ -1,10 +1,11 @@
-import styled from "styled-components";
-import { Link } from "react-router-dom";
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-//const Button = styled.button`
+// const Button = styled.button`
 const Button = styled(Link)` /* Quando quiser um componente no styled-component usa entre () e fazer import */
     color: var(--white);
     border: 1px solid var(--white);
+    background: var(--background);
     box-sizing: border-box;
     cursor: pointer;
     padding: 16px 24px;
@@ -21,6 +22,6 @@ const Button = styled(Link)` /* Quando quiser um componente no styled-component 
     .&:focus {
         opacity: .5;
     }
-`
+`;
 
 export default Button;
