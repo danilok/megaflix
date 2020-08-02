@@ -34,8 +34,9 @@ function CadastroCategoria() {
   /* segundo parâmetro pode ser vazio e isso indica que será executado a qualquer interação,
   /* se for um array vazio ([]), será executado apenas uma vez */
   useEffect(() => {
-    console.log('alow')
-    const URL_TOP = 'http://localhost:8080/categorias';
+    const URL_TOP = window.location.hostname.includes('localhost')
+      ? 'http://localhost:8080/categorias'
+      : 'https://megafliix.herokuapp.com/categorias';
     fetch(URL_TOP)
       .then(async (response) => {
         const resposta = await response.json();
